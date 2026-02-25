@@ -1,16 +1,4 @@
-name: Deploy Vite App
-
-on:
-  push:
-    branches: ["main"]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  build:
+build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,19 +11,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
+        # This line injects your secret into the Vite build process
         run: npm run build
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite puts the final files in 'dist'
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          path: './dist'
