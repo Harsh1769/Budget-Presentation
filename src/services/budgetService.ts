@@ -42,8 +42,8 @@ export async function getBudgetHighlights() {
       { name: "Pensions", value: 4 },
       { name: "Other Expenditure", value: 9 }
     ],
-    taxSlabs: "Standard deduction increased to ₹75,000. Tax-free income up to ₹7 Lakhs.",
-    viksitBharat: "Focus on 4 pillars: Poor, Women, Youth, and Farmers (Gyan)."
+    taxSlabs: "Standard deduction increased to ₹75,000. Tax-free income up to ₹12 Lakhs.",
+    viksitBharat: "Focus on 4 pillars: Poor, Women, Youth, and Farmers (Gyan) for a developed India by 2047."
   };
 
   try {
