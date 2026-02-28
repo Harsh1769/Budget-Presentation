@@ -60,7 +60,7 @@ export default function App() {
   const slides = [
     {
       id: 'intro',
-      title: "Welcome to Your 2026 Budget Guide",
+      title: "Welcome to Your 2026-27 Budget Guide",
       subtitle: "Making sense of India's financial plan in simple terms",
       content: (
         <div className="space-y-8 text-center flex flex-col h-full">
@@ -87,7 +87,7 @@ export default function App() {
               </motion.div>
             </div>
             <p className="text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Ever wondered how a country manages its money? Let's break down the 2026 Budget using simple concepts from your economics textbook.
+              Ever wondered how a country manages its money? Let's break down the 2026-27 Budget using simple concepts from your economics textbook.
             </p>
           </motion.div>
           
@@ -205,7 +205,7 @@ export default function App() {
             >
               <h4 className="text-lg font-black mb-2">Deficit</h4>
               <p className="text-xs text-indigo-200 uppercase font-bold mb-3">Spending &gt; Income</p>
-              <p className="text-sm text-indigo-100">Borrowing to invest in roads, schools, and hospitals.</p>
+              <p className="text-sm text-indigo-100">Borrowing to invest in growth for 2026-27.</p>
             </motion.div>
           </div>
           <motion.div 
@@ -214,7 +214,7 @@ export default function App() {
             transition={{ delay: 0.3 }}
             className="bg-slate-900 dark:bg-black p-8 rounded-3xl text-center"
           >
-            <p className="text-indigo-400 font-black uppercase tracking-[0.3em] text-xs mb-2">India's 2026 Choice</p>
+            <p className="text-indigo-400 font-black uppercase tracking-[0.3em] text-xs mb-2">India's 2026-27 Choice</p>
             <h4 className="text-3xl font-black text-white mb-2">Deficit Budget for Growth</h4>
             <p className="text-slate-400">Targeting a fiscal deficit of <span className="text-emerald-400 font-bold">{budgetData?.fiscalDeficit}</span> to keep the economy booming.</p>
           </motion.div>
@@ -263,7 +263,7 @@ export default function App() {
             </div>
           </motion.div>
           <div className="md:col-span-2 text-center">
-            <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">2026 Strategy: Spend more on Capital to build a better future.</p>
+            <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">2026-27 Strategy: Spend more on Capital to build a better future.</p>
           </div>
         </div>
       )
@@ -298,7 +298,7 @@ export default function App() {
     },
     {
       id: 'highlights',
-      title: "6. Big Wins for 2026",
+      title: "6. Big Wins for 2026-27",
       subtitle: "Where the major investments are going",
       content: (
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -381,7 +381,7 @@ export default function App() {
               className="p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl text-center"
             >
               <p className="text-xs font-black text-slate-400 uppercase mb-2">Zero Tax Up To</p>
-              <p className="text-2xl font-black text-emerald-600 dark:text-emerald-400">₹7 Lakhs</p>
+              <p className="text-2xl font-black text-emerald-600 dark:text-emerald-400">₹12 Lakhs</p>
             </motion.div>
             <motion.div 
               whileHover={{ scale: 1.02 }}
@@ -453,7 +453,7 @@ export default function App() {
             animate={{ opacity: 1 }}
             className="text-2xl text-slate-700 dark:text-slate-300 leading-relaxed font-medium"
           >
-            The 2026 Budget isn't just about numbers. It's a roadmap that uses **Economic Principles** to build a **Developed India**.
+            The 2026-27 Budget isn't just about numbers. It's a roadmap that uses **Economic Principles** to build a **Developed India**.
           </motion.p>
           <div className="grid grid-cols-2 gap-8">
             <motion.div 
@@ -521,44 +521,86 @@ export default function App() {
       title: "Thank You!",
       subtitle: "Presentation Credits",
       content: (
-        <div className="flex flex-col items-center justify-center h-full space-y-12 text-center">
+        <div className="relative flex flex-col items-center justify-center h-full space-y-12 text-center overflow-hidden py-12">
+          {/* Animated Background Particles */}
+          <div className="absolute inset-0 pointer-events-none">
+            {Array.from({ length: 20 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-indigo-500/20 rounded-full"
+                initial={{ 
+                  x: Math.random() * 100 + "%", 
+                  y: Math.random() * 100 + "%",
+                  scale: Math.random() * 2
+                }}
+                animate={{ 
+                  y: [null, "-120%"],
+                  opacity: [0, 1, 0]
+                }}
+                transition={{ 
+                  duration: Math.random() * 5 + 5, 
+                  repeat: Infinity, 
+                  delay: Math.random() * 5,
+                  ease: "linear"
+                }}
+              />
+            ))}
+          </div>
+
           <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 100 }}
-            className="w-32 h-32 bg-indigo-600 rounded-full flex items-center justify-center shadow-2xl shadow-indigo-200 dark:shadow-none"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 100, damping: 15 }}
+            className="relative w-40 h-40 bg-gradient-to-br from-indigo-600 to-violet-700 rounded-full flex items-center justify-center shadow-2xl shadow-indigo-300 dark:shadow-none"
           >
-            <TrendingUp className="w-16 h-16 text-white" />
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            >
+              <TrendingUp className="w-20 h-20 text-white" />
+            </motion.div>
+            
+            {/* Orbiting Ring */}
+            <motion.div 
+              className="absolute inset-0 border-4 border-indigo-400/30 rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+            />
           </motion.div>
           
-          <div className="space-y-6">
+          <div className="space-y-8 relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, type: "spring" }}
+              className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-3xl border border-white dark:border-slate-700 shadow-xl"
             >
-              <p className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-2">Developed By</p>
-              <h4 className="text-3xl font-black text-slate-900 dark:text-white">Harsh Sharma</h4>
+              <p className="text-xs font-black text-indigo-500 dark:text-indigo-400 uppercase tracking-[0.4em] mb-2">Developed By</p>
+              <h4 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Harsh Sharma</h4>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, type: "spring" }}
+              className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-3xl border border-white dark:border-slate-700 shadow-xl"
             >
-              <p className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-2">Presented By</p>
-              <h4 className="text-3xl font-black text-slate-900 dark:text-white">Harsh Sharma & Sachin</h4>
+              <p className="text-xs font-black text-emerald-500 dark:text-emerald-400 uppercase tracking-[0.4em] mb-2">Presented By</p>
+              <h4 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Harsh Sharma & Sachin</h4>
             </motion.div>
           </div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-slate-500 dark:text-slate-400 font-medium italic"
+            transition={{ delay: 0.8 }}
+            className="space-y-2"
           >
-            "Empowering India through Economic Literacy"
-          </motion.p>
+            <p className="text-slate-500 dark:text-slate-400 font-bold italic text-lg">
+              "Empowering India through Economic Literacy"
+            </p>
+            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-indigo-500 to-transparent mx-auto rounded-full" />
+          </motion.div>
         </div>
       )
     }
@@ -572,7 +614,7 @@ export default function App() {
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center space-y-4">
           <div className="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-slate-600 font-medium">Fetching 2026 Budget Data...</p>
+          <p className="text-slate-600 font-medium">Fetching 2026-27 Budget Data...</p>
         </div>
       </div>
     );
@@ -587,7 +629,7 @@ export default function App() {
             <div className="bg-indigo-600 p-2 rounded-lg">
               <TrendingUp className="text-white w-5 h-5" />
             </div>
-            <h1 className="font-bold text-lg tracking-tight text-slate-800 dark:text-slate-200">Budget 2026 Explorer</h1>
+            <h1 className="font-bold text-lg tracking-tight text-slate-800 dark:text-slate-200">Budget 2026-27 Explorer</h1>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
