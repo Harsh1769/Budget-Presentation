@@ -4,15 +4,14 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 
 export default defineConfig(({ mode }) => {
-  // Load env from files (local dev)
   const env = loadEnv(mode, process.cwd(), '');
-  
   return {
+    // This is critical for GitHub Pages
     base: '/Budget-Presentation/', 
+    
     plugins: [react(), tailwindcss()],
     define: {
-      // Logic: Use the Secret from GitHub if available, otherwise use the local .env key
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || process.env.GEMINI_API_KEY),
+      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
     resolve: {
       alias: {
@@ -20,8 +19,10 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      // This ensures that even if there are small TS warnings, the build tries to finish
-      chunkSizeWarningLimit: 1600,
+      outDir: 'dist',
+    },
+    server: {
+      hmr: process.env.DISABLE_HMR !== 'true',
     },
   };
 });
