@@ -20,6 +20,7 @@ import {
   Sun,
   Moon
 } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { getBudgetHighlights } from './services/budgetService';
 import { RupeePieChart, AllocationBarChart } from './components/BudgetCharts';
 import { cn } from './lib/utils';
@@ -511,7 +512,7 @@ export default function App() {
             </ul>
           </div>
           <p className="text-center text-xs text-slate-400 font-bold uppercase tracking-widest">
-            Data updated as of Feb 2026.
+            Data updated as of Feb 2026 for Budget 2026-27.
           </p>
         </div>
       )
@@ -566,6 +567,22 @@ export default function App() {
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
             />
+
+            {/* Party Poppers */}
+            <motion.div 
+              className="absolute -top-4 -left-4 text-4xl"
+              animate={{ rotate: [0, -20, 0], scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              🎉
+            </motion.div>
+            <motion.div 
+              className="absolute -top-4 -right-4 text-4xl"
+              animate={{ rotate: [0, 20, 0], scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5, delay: 0.2 }}
+            >
+              🎊
+            </motion.div>
           </motion.div>
           
           <div className="space-y-8 relative z-10">
@@ -573,20 +590,38 @@ export default function App() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, type: "spring" }}
-              className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-3xl border border-white dark:border-slate-700 shadow-xl"
+              className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-3xl border border-white dark:border-slate-700 shadow-xl"
             >
               <p className="text-xs font-black text-indigo-500 dark:text-indigo-400 uppercase tracking-[0.4em] mb-2">Developed By</p>
               <h4 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Harsh Sharma</h4>
+              
+              {/* Cracker Sparkles */}
+              <motion.div 
+                className="absolute -top-2 -right-2 text-xl"
+                animate={{ scale: [0, 1.5, 0], opacity: [0, 1, 0] }}
+                transition={{ repeat: Infinity, duration: 1, delay: 0.5 }}
+              >
+                ✨
+              </motion.div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, type: "spring" }}
-              className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-3xl border border-white dark:border-slate-700 shadow-xl"
+              className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-6 rounded-3xl border border-white dark:border-slate-700 shadow-xl"
             >
               <p className="text-xs font-black text-emerald-500 dark:text-emerald-400 uppercase tracking-[0.4em] mb-2">Presented By</p>
               <h4 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Harsh Sharma & Sachin</h4>
+              
+              {/* Cracker Sparkles */}
+              <motion.div 
+                className="absolute -bottom-2 -left-2 text-xl"
+                animate={{ scale: [0, 1.5, 0], opacity: [0, 1, 0] }}
+                transition={{ repeat: Infinity, duration: 1, delay: 0.8 }}
+              >
+                ✨
+              </motion.div>
             </motion.div>
           </div>
 
@@ -603,11 +638,129 @@ export default function App() {
           </motion.div>
         </div>
       )
+    },
+    {
+      id: 'ad-institute',
+      title: "AD Institute of Commerce",
+      subtitle: "Your Gateway to Excellence in Commerce",
+      content: (
+        <div className="relative flex flex-col items-center justify-center h-full space-y-10 text-center py-8">
+          {/* Logo */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="w-32 h-32 bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex items-center justify-center border-2 border-indigo-600"
+          >
+            <img 
+              src="/input_file_2.png" 
+              alt="AD Institute Logo" 
+              className="w-full h-full object-contain p-2"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+
+          <div className="space-y-4">
+            <motion.h4 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="text-5xl font-black text-slate-900 dark:text-white tracking-tight"
+            >
+              AD Institute of Commerce
+            </motion.h4>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 italic"
+            >
+              "Commerce के लिये AD hi Sahi Haii"
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-12 w-full max-w-4xl">
+            <motion.div 
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="space-y-4"
+            >
+              <div className="aspect-[4/5] bg-slate-200 dark:bg-slate-700 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
+                <img 
+                  src="/input_file_0.png" 
+                  alt="CA Deep Sir" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div>
+                <h5 className="text-2xl font-black text-slate-800 dark:text-slate-100">CA Deep Sir</h5>
+                <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">Expert Faculty</p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="space-y-4"
+            >
+              <div className="aspect-[4/5] bg-slate-200 dark:bg-slate-700 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
+                <img 
+                  src="/input_file_1.png" 
+                  alt="CA Prasheel Sir" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div>
+                <h5 className="text-2xl font-black text-slate-800 dark:text-slate-100">CA Prasheel Sir</h5>
+                <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">Expert Faculty</p>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="pt-6"
+          >
+            <button className="px-10 py-4 bg-indigo-600 text-white rounded-full font-black text-lg shadow-xl shadow-indigo-200 dark:shadow-none hover:scale-105 transition-transform">
+              Join the Excellence
+            </button>
+          </motion.div>
+        </div>
+      )
     }
   ];
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
+  useEffect(() => {
+    if (currentSlide === slides.length - 1) {
+      const duration = 5 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+      const interval: any = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        // since particles fall down, start a bit higher than random
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+      }, 250);
+
+      return () => clearInterval(interval);
+    }
+  }, [currentSlide, slides.length]);
 
   if (loading) {
     return (
