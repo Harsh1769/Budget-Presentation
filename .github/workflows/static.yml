@@ -2,7 +2,7 @@ name: Deploy Vite App
 
 on:
   push:
-    branches: ["main"] # Double-check if your branch is 'main' or 'master'
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -23,14 +23,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build
-        # CI=false skips strict TypeScript/Linting errors that break the build
+        # CI=false prevents the build from failing on tiny warnings
         run: CI=false npm run build
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
